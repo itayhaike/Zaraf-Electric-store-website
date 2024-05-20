@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>{{ product.name }}</h2>
+        <div class="product-details">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+            <div>
+                <p>Price: ${{ product.price }}</p>
+                <a href="https://wa.me/+972543188839?text=New%20order:%20{{ product.name|urlencode }}%20-%20Price:%20${{ product.price }}%20-%20Link:%20{{ request.url|urlencode }}" target="_blank" rel="noopener noreferrer">
+                    <button>Order via WhatsApp</button>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
