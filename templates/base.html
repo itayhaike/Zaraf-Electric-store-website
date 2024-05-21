@@ -17,6 +17,12 @@
                         <li><a href="{{ url_for('index') }}#ovens">Ovens</a></li>
                     </ul>
                 </li>
+                <li>
+                    <form class="search-form" action="{{ url_for('search') }}" method="get">
+                        <input type="text" name="query" placeholder="Search products...">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>

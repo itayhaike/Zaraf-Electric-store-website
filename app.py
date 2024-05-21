@@ -70,6 +70,8 @@ for product in products:
     if category not in product_categories:
         product_categories[category] = []
     product_categories[category].append(product)
+    
+
 
 @app.route('/')
 def index():
@@ -87,6 +89,12 @@ def product(product_id):
         # You can add code to send a WhatsApp message here
 
     return render_template('product.html', product=product)
+
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query', '').lower()
+    matching_products = [p for p in products if query in p['name'].lower()]
+    return render_template('search.html', query=query, products=matching_products)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
