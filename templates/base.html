@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - My Electrical Products Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Electrical Products Store</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Categories</a>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}#washing-machines">Washing Machines</a></li>
+                        <li><a href="{{ url_for('index') }}#fridges">Fridges</a></li>
+                        <li><a href="{{ url_for('index') }}#ovens">Ovens</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2023 My Electrical Products Store</p>
+    </footer>
+</body>
+</html>

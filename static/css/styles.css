@@ -122,3 +122,29 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
+/* Dropdown menu styles */
+nav ul li {
+    position: relative;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    padding: 0.5rem;
+}
+
+nav ul li ul li a {
+    color: #fff;
+    text-decoration: none;
+}

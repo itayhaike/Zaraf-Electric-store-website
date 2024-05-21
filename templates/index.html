@@ -3,10 +3,11 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>Featured Products</h2>
+    {% for category, category_products in product_categories.items() %}
+    <section id="{{ category.lower().replace(' ', '-') }}">
+        <h2>{{ category }}</h2>
         <ul class="product-list">
-            {% for product in products %}
+            {% for product in category_products %}
             <li>
                 <a href="{{ url_for('product', product_id=product.id) }}">
                     <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
@@ -17,4 +18,5 @@
             {% endfor %}
         </ul>
     </section>
+    {% endfor %}
 {% endblock %}
